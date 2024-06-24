@@ -1,0 +1,37 @@
+[project]
+name = "brapi2vcf"
+authors = [
+  { name="Matthijs Brouwer", email="matthijs.brouwer@wur.nl" },
+]
+description = "Construct a VCF-file from BrAPI-endpoint data"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+dynamic = ["dependencies","version"]
+classifiers = [
+    "Topic :: Internet :: Proxy Servers",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/matthijsbrouwer/brapi2vcf"
+
+[project.scripts]
+brapi2vcf = "brapi2vcf.service:service"
+
+[build-system]
+requires = [
+    "read_version[toml] ~= 0.3.0",
+    "setuptools >= 42.0.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.read_version]
+version = "src.brapi2vcf._version:__version__"
+
